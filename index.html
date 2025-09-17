@@ -65,10 +65,14 @@
                     <h1>Contact Me</h1>
                     <p><img src="images/gmail.png" alt="gmail"><span>shariar.rahman.shah@gmail.com</span></p>
                     <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/shariar-rahman-aa7638318/"><img src="images/linkedin.png" alt="linkedin link"></a>
-                        <a href="https://github.com/shariarrahman"><img src="images/github.png" alt="github link"></a>
-                        <a href="https://www.facebook.com/shariarrahman.shah.3"><img src="images/facebook.png" alt="facebook link"></a>
-                        <a href="#"><img src="images/phone.png" alt="call me link"></a>
+                        <a href="https://www.linkedin.com/in/shariar-rahman-aa7638318/" target="_blank" rel="noopener noreferrer"><img src="images/linkedin.png" alt="linkedin link"></a>
+                        <a href="https://github.com/shariarrahman" target="_blank" rel="noopener noreferrer"><img src="images/github.png" alt="github link"></a>
+                        <a href="https://www.facebook.com/shariarrahman.shah.3" target="_blank" rel="noopener noreferrer"><img src="images/facebook.png" alt="facebook link"></a>
+                        <a href="#" id="phone-icon"><img src="images/phone.png" alt="call me link"></a>
+                        <div id="popup-window" class="popup">
+                            <p>📞 +8801788425115</p>
+                            <button id="close-popup">Close</button>
+                        </div>
                     </div>
                 </div>
                 <div class="contact-right">
@@ -119,13 +123,21 @@
             });
         });
 
+        const phoneIcon = document.getElementById("phone-icon");
+        const phonePopup = document.getElementById("popup-window");
+        const closePopup = document.getElementById("close-popup");
+
+        phoneIcon.addEventListener("click", function(e) {
+            e.preventDefault();
+            phonePopup.style.display = "block";
+        });
+
+        closePopup.addEventListener("click", function() {
+            phonePopup.style.display = "none";
+        });
+
+
     </script>
-
-    <form name="submit-to-google-sheet">
-  <input name="email" type="email" placeholder="Email" required>
-  <button type="submit">Send</button>
-</form>
-
 <script>
   const scriptURL = 'https://script.google.com/macros/s/AKfycbxBM9NPwSu4nG3QqsOhw4GkIaTuou67oUJ7du_qtv4B5LorJYtjfWj3ZsZGpxWWg9uN/exec'
   const form = document.forms['submit-to-google-sheet']
@@ -147,5 +159,4 @@
 </script>
 
 </body>
-
 </html>
