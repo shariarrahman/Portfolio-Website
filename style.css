@@ -1,0 +1,319 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background:linear-gradient(#262626, #1f1f1f);
+    color: #fff;
+}
+#header{
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/isometric-programmer-working-desk.png);
+    background-size:750px auto;
+    background-position:right 120px; 
+    background-repeat: no-repeat;
+
+}
+
+.container{
+    padding: 20px 5%;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+nav a{
+    color:#0BA6DF;
+    text-decoration: none;
+    font-size:  40px;
+    font-weight: bold;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 0 15px;
+}
+
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: lighter;
+    position: relative;
+    transition: color 0.5s ease;
+}
+
+nav ul li a:hover{
+    color: #0BA6DF;
+}
+
+nav ul li a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #0BA6DF;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+
+nav ul li a:hover::after{
+    width: 100%;
+}
+
+.header-text{
+    margin-top: 20%;
+}
+
+.header-text h1{
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin: 20px 0;
+}
+
+.header-text p{
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    margin-top: 20px;
+}
+
+.header-text h1 span{
+    color: #0BA6DF;
+}
+
+
+/* --------------------about---------------------- */
+
+#about{
+    padding: 80px 0;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about-col-1{
+    flex-basis: 35%;
+}
+
+.about-col-1 img{
+    width: 90%;
+    border-radius: 15px;
+    position: relative;
+    bottom: 15px;
+}
+
+.about-col-2{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 60%;
+    background: linear-gradient(#2b2a2a);
+    padding: 40px;
+    border-radius: 10px;
+    max-height: 600px;
+    
+}
+
+@media screen and (max-width: 768px) {
+    .about-col-2 {
+        max-height: none; /* Remove max-height on smaller screens */
+        min-height: 300px; /* Optional: Ensure a minimum height */
+    }
+}
+
+.about-title{
+    font-size: 50px;
+}
+
+.about-col-2 .portfolio-text{
+    font-size: 18px;
+    margin-top: 20px;
+    color: #dad3d3;
+    line-height: 1.4em;
+}
+
+/* ------------------------Skills & Education------------------------ */
+
+.tab-titles{
+    display: flex;
+    margin: 20px 0 40px;
+}
+
+.tab-links{
+    margin-right: 100px;
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.5s ease;
+}
+
+.tab-links:hover{
+    color: #0BA6DF;
+}
+
+.tab-links::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #0BA6DF;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+}
+
+.tab-links.active-links::after{
+    width: 100%;
+}
+
+.tab-contents ul li{
+    font-size: 16px;
+    color: #dad3d3;
+    margin: 10px 0;
+    line-height: 1.8em;
+}
+
+.tab-contents ul li span{
+    color: #0BA6DF;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.tab-contents{
+    display: none;
+}
+
+.tab-contents.active-tab{
+    display: block;
+}
+
+.btn{
+    display: inline-block;
+    color: #fff;
+    padding: 10px 12px;
+    text-decoration: none;
+    background: #171717;
+    border-radius: 5px;
+    font-weight: 200;
+    transition: background 0.5s, transform 0.5s ease;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #0BA6DF;
+}
+
+.btn:hover{
+    background: #0BA6DF;
+    transform: translateY(-3px);
+}
+
+.btn-submit{
+    display: inline-block;
+    font-size: 15px;
+    padding: 10px 40px;
+}
+
+/* ---------------Contact--------------- */
+
+.contact-left{
+    flex-basis: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    padding-left: 50px;
+    padding-bottom: 50px;
+}
+
+.contact-left h1{
+    font-size: 50px;
+}
+
+.contact-left p{
+    font-size: 20px;
+    padding: 10px 0 0 3px;
+    color: #0BA6DF;
+}
+.contact-left p span{
+    position: relative;
+    top: 2px;
+}
+
+.contact-left p img{
+    height: 32px;
+    width: 32px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+.social-icons{
+    margin-top: 20px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    padding: 10px 0 0 5px;
+}
+
+.social-icons img{
+    width: 32px;
+    height: 32px;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.social-icons img:hover{
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+.contact-right{
+    flex-basis: 60%;
+}
+
+.contact-right form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input, form textarea{
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #2b2a2a;
+    padding: 15px;
+    margin:  15px 15px 15px 0;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 6px;
+
+}
+
+#message{
+    color: #1fff02;
+    display: block;
+}
+
+.copyright{
+    width: 100%;
+    text-align: center;
+    padding: 25px 0;
+    background: #2b2a2a;
+    font-weight: 300;
+    margin-top: 20px;
+}

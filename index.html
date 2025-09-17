@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <a href="#">Shariar Rahman</a>
+                <ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#about" data-tab="skills" class="nav-tab-link">Skills</a></li>
+                    <li><a href="#about" data-tab="education" class="nav-tab-link">Education</a></li>
+                    <li><a href="#contact">Contacts</a></li>
+                </ul>
+            </nav>
+            <div class="header-text">
+                <h1>Hi, I'm <span>Shariar Rahman Shah</span></h1>
+                <p>Computer Science & Engineering Student</p>
+            </div>
+        </div>
+    </div>
+    <!-- -------------------------about me------------------------------->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/Adobe Express - file.png" alt="About me">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="about-title">About Me</h1>
+                    <p class="portfolio-text">I am a Computer Science student with a solid foundation in web development, skilled in HTML, CSS, JavaScript, PHP, and MySQL. I have additional experience in programming with C, C++, Java, and Kotlin, which helps me adapt to diverse technologies.</p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-links" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Web Development</span><br>HTML, CSS, JavaScript, PHP (Besics)</li>
+                            <li><span>Programming</span><br>C, C++, Java, Kotlin</li>
+                            <li><span>Design</span><br>Figma</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>B.Sc in Computer Science & Engineering (Final Semester)</span><br>Bangladesh University of Business and Technology (BUBT)</li>
+                            <li><span>Diploma in Computer Science & Technology (Polytechnic)</span><br>Naogaon Polytechnic Instute</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="btn" download>Download CV</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ----------------------Contact------------------------ -->
+     <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1>Contact Me</h1>
+                    <p><img src="images/gmail.png" alt="gmail"><span>shariar.rahman.shah@gmail.com</span></p>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/shariar-rahman-aa7638318/"><img src="images/linkedin.png" alt="linkedin link"></a>
+                        <a href="#"><img src="images/github.png" alt="github link"></a>
+                        <a href="https://www.facebook.com/shariarrahman.shah.3"><img src="images/facebook.png" alt="facebook link"></a>
+                        <a href="#"><img src="images/phone.png" alt="call me link"></a>
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Write Your Message"></textarea>
+                        <button type="submit" class="btn btn-submit">Submit</button>
+                    </form>
+                    <span id="message"></span>
+                </div>
+            </div>
+         </div>
+         <div class="copyright">
+                <p>Copyright © Made by Shariar Rahman</p>
+        </div>
+     </div>
+
+    <!-- -----------------------JS-------------------------- -->
+
+    <script>
+
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classList.remove("active-links");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-links");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+
+        const navTabLinks = document.querySelectorAll('.nav-tab-link');
+
+        navTabLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const tabName = this.getAttribute('data-tab');
+        
+                document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
+        
+                const tabLinkElement = document.querySelector(`.tab-links[onclick="opentab('${tabName}')"]`);
+                tabLinkElement.click();
+            });
+        });
+
+    </script>
+
+    <form name="submit-to-google-sheet">
+  <input name="email" type="email" placeholder="Email" required>
+  <button type="submit">Send</button>
+</form>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxBM9NPwSu4nG3QqsOhw4GkIaTuou67oUJ7du_qtv4B5LorJYtjfWj3ZsZGpxWWg9uN/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const message = document.getElementById("message")
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        message.innerHTML = "Message sent successfully"
+        setTimeout(function(){
+            message.innerHTML = ""
+        },5000)
+        form.reset()
+
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+
+</body>
+</html>
